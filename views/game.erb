@@ -1,8 +1,26 @@
 <h1>Blackjack!</h1>
-<form action='/game' method='post'>
-<legend>Dealer's Cards:</legend>
-<legend><%= session[:player_name] %>'s Cards:</legend>
+<div class="container">
+	<legend>Dealer's Cards:</legend>
+
+		<% session[:dealer_cards].each do |card| %>
+			<img src="/images/cards/<%= get_card_img(card) %>.jpg" />
+		<% end %>
+
+	<legend><%= session[:player_name] %>'s Cards:</legend>
+
+		<% session[:player_cards].each do |card| %>
+			<img src="/images/cards/<%= get_card_img(card) %>.jpg" />
+		<% end %>
+
+<br />
+<br />
 <p class="muted"><%= session[:player_name] %> has $<%= session[:player_money] %> total.  Bet amount this round: $<%= session[:player_bet] %></p>
-<input type='submit' value='Hit' class='btn btn-success'/>
-<input type='submit' value='Stay' class='btn btn-warning'/>
-</form>
+<p id="action_buttons">
+	<form action='/hit' method='post'>
+		<input type='submit' name='hit' value='Hit' class='btn btn-success'/>
+	</form>
+	<form action='/stay' method='post'>
+		<input type='submit' name='stay' value='Stay' class='btn btn-warning'/>
+	</form>
+</p>
+</div>
