@@ -1,1 +1,8 @@
-Hello <%= session[:player_name] %>!
+<h1>Blackjack!</h1>
+<form action='/game' method='post'>
+<legend>Dealer's Cards:</legend>
+<legend><%= session[:player_name] %>'s Cards:</legend>
+<p class="muted"><%= session[:player_name] %> has $<%= session[:player_money] %> total.  Bet amount this round: $<%= session[:player_bet] %></p>
+<input type='submit' value='Hit' class='btn btn-success'/>
+<input type='submit' value='Stay' class='btn btn-warning'/>
+</form>

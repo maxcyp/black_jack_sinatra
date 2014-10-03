@@ -10,9 +10,16 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-            <ul class="nav">
-              <li><a href="/">Nav Item</a></li>
-            </ul>
+            	<div style="float:left"><strong>BET: $<%= session[:player_bet] %></strong></div>         	
+        	<ul class="nav">
+        		 
+              		 <li><a href="/reset"><i class="icon-cog"></i>New Game</a></li>
+           	</ul>
+        	<div style="float:right">
+			<div class="btn-group">
+				<a class="btn btn-primary" href="/reset"><i class="icon-user icon-white"></i><%= session[:player_name] %> ($<%= session[:player_money] %>)</a>
+			</div>
+            	</div>
         </div>
       </div>
     </div>
